@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libros | Alejandría</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container">
+
+        <a class="navbar-brand" href="index.html">
+            <i class="bi bi-book"></i>
+            Alejandría
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        Inicio
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="libros.html">
+                        Libros
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="contacto.html">
+                        Contacto
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">
+                        <i class="bi bi-person"></i>
+                        Iniciar sesión
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="text-center">
+
+            <h1>
+                Catálogo de libros
+            </h1>
+
+            <p class="lead">
+                Encuentra el libro que estás buscando.
+            </p>
+
+        </div>
+
+        <div class="text-center my-4">
+
+            <button class="btn btn-primary">
+                Todos
+            </button>
+
+            <button class="btn btn-success">
+                Literatura
+            </button>
+
+            <button class="btn btn-warning">
+                Académicos
+            </button>
+
+            <button class="btn btn-secondary">
+                Desarrollo personal
+            </button>
+
+            <button class="btn btn-danger">
+                Fantasía
+            </button>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+
+                <div class="card">
+
+                    <img src="img/principito.jpg" class="card-img-top" alt="El Principito">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            El Principito
+                        </h5>
+
+                        <p class="card-text">
+                            Antoine de Saint-Exupéry
+                        </p>
+
+                        <p class="card-text">
+                            Literatura
+                        </p>
+
+                        <p class="fw-bold">
+                            S/. 35.00
+                        </p>
+
+                        <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#detalle">
+                            Ver detalle
+                        </button>
+
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#compra" onclick="seleccionarLibro('El Principito', 35)">
+                            Comprar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+
+                <div class="card">
+
+                    <img src="img/habitos.jpg" class="card-img-top" alt="Hábitos atómicos">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            Hábitos atómicos
+                        </h5>
+
+                        <p class="card-text">
+                            James Clear
+                        </p>
+
+                        <p class="card-text">
+                            Desarrollo personal
+                        </p>
+
+                        <p class="fw-bold">
+                            S/. 59.00
+                        </p>
+
+                        <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#detalle">
+                            Ver detalle
+                        </button>
+
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#compra" onclick="seleccionarLibro('Hábitos atómicos', 59)">
+                            Comprar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+
+                <div class="card">
+
+                    <img src="img/hobbit.jpg" class="card-img-top" alt="El Hobbit">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            El Hobbit
+                        </h5>
+
+                        <p class="card-text">
+                            J. R. R. Tolkien
+                        </p>
+
+                        <p class="card-text">
+                            Fantasía
+                        </p>
+
+                        <p class="fw-bold">
+                            S/. 49.00
+                        </p>
+
+                        <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#detalle">
+                            Ver detalle
+                        </button>
+
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#compra" onclick="seleccionarLibro('El Hobbit', 49)">
+                            Comprar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+
+                <div class="card">
+
+                    <img src="img/cienaños.jpg" class="card-img-top" alt="Cien años de soledad">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            Cien años de soledad
+                        </h5>
+
+                        <p class="card-text">
+                            Gabriel García Márquez
+                        </p>
+
+                        <p class="card-text">
+                            Literatura
+                        </p>
+
+                        <p class="fw-bold">
+                            S/. 55.00
+                        </p>
+
+                        <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#detalle">
+                            Ver detalle
+                        </button>
+
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#compra" onclick="seleccionarLibro('Cien años de soledad', 55)">
+                            Comprar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+
+                <div class="card">
+
+                    <img src="img/origen.jpg" class="card-img-top" alt="El origen de las especies">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            El origen de las especies
+                        </h5>
+
+                        <p class="card-text">
+                            Charles Darwin
+                        </p>
+
+                        <p class="card-text">
+                            Académicos
+                        </p>
+
+                        <p class="fw-bold">
+                            S/. 85.00
+                        </p>
+
+                        <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#detalle">
+                            Ver detalle
+                        </button>
+
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#compra" onclick="seleccionarLibro('El origen de las especies', 85)">
+                            Comprar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+
+                <div class="card">
+
+                    <img src="img/donquijote.jpg" class="card-img-top" alt="Don Quijote de la Mancha">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            Don Quijote de la Mancha
+                        </h5>
+
+                        <p class="card-text">
+                            Miguel de Cervantes
+                        </p>
+
+                        <p class="card-text">
+                            Literatura
+                        </p>
+
+                        <p class="fw-bold">
+                            S/. 62.00
+                        </p>
+
+                        <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#detalle">
+                            Ver detalle
+                        </button>
+
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#compra" onclick="seleccionarLibro('Don Quijote de la Mancha', 62)">
+                            Comprar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<div class="modal fade" id="detalle">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+                    El Principito
+                </h5>
+
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <p>
+                    <b>Autor:</b> Antoine de Saint-Exupéry
+                </p>
+
+                <p>
+                    <b>Categoría:</b> Literatura
+                </p>
+
+                <p>
+                    <b>Precio:</b> S/. 35.00
+                </p>
+
+                <p>
+                    Una historia clásica sobre la amistad y la imaginación.
+                </p>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Cerrar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="modal fade" id="compra">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+                    Comprar libro
+                </h5>
+
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <p>
+                    <b>Libro:</b> <span id="libro">El Principito</span>
+                </p>
+
+                <p>
+                    <b>Precio:</b> S/. <span id="precio">35</span>
+                </p>
+
+                <label class="form-label">
+                    Cantidad
+                </label>
+
+                <input type="number" id="cantidad" class="form-control" value="1" min="1" onchange="calcularTotal()">
+
+                <p class="mt-3">
+                    <b>Total: S/. <span id="total">35</span></b>
+                </p>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Cancelar
+                </button>
+
+                <button type="button" class="btn btn-success" onclick="comprar()">
+                    Continuar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer class="py-4 bg-chestunt">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-12 col-md-6">
+
+                <h5>
+                    <i class="bi bi-book"></i>
+                    Alejandría
+                </h5>
+
+                <p>
+                    Tu espacio para encontrar nuevas historias.
+                </p>
+
+            </div>
+
+            <div class="col-12 col-md-6 text-md-end">
+
+                <i class="bi bi-facebook me-3"></i>
+                <i class="bi bi-instagram me-3"></i>
+                <i class="bi bi-envelope"></i>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <p class="text-center">
+            © 2026 Alejandría. Todos los derechos reservados.
+        </p>
+
+    </div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${categoria.id != null ? 'Editar Categoría' : 'Nueva Categoría'}">Formulario Categoría</title>
+    <!-- Bootstrap para los estilos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+<div class="container mt-5 mb-5">
+    
+    <!-- Título dinámico -->
+    <h2 th:text="${categoria.id != null ? 'Editar Categoría' : 'Registrar Nueva Categoría'}">Registrar Nueva Categoría</h2>
+    <hr>
+    
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <!-- th:object vincula el formulario a la entidad Categoria -->
+            <form th:action="@{/admin/categorias/guardar}" th:object="${categoria}" method="post">
+                
+                <!--Guarda el ID para actualizar y no crear una nueva-->
+                <input type="hidden" th:field="*{id}">
+
+                <!-- Campo Nombre -->
+                <div class="mb-3">
+                    <label class="form-label">Nombre de la categoría:</label>
+                    <input type="text" th:field="*{nombre}" class="form-control" 
+                           th:classappend="${#fields.hasErrors('nombre')} ? 'is-invalid'">
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+                </div>
+
+                <!-- Campo Icono -->
+                <div class="mb-3">
+                    <label class="form-label">Icono (Bootstrap Icons, ej. bi-book, bi-stars):</label>
+                    <input type="text" th:field="*{icono}" class="form-control" 
+                           th:classappend="${#fields.hasErrors('icono')} ? 'is-invalid'">
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('icono')}" th:errors="*{icono}"></div>
+                </div>
+
+                <!-- Campo Descripción -->
+                <div class="mb-3">
+                    <label class="form-label">Descripción:</label>
+                    <textarea th:field="*{descripcion}" class="form-control" rows="3" 
+                              th:classappend="${#fields.hasErrors('descripcion')} ? 'is-invalid'"></textarea>
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></div>
+                </div>
+
+                <!-- Botones -->
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary">Guardar Categoría</button>
+                    <a th:href="@{/admin}" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

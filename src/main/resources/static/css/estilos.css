@@ -1,0 +1,190 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fffaf3;
+    color: #333;
+}
+
+.navbar {
+    background-color: #f3e5d0 !important;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #5c3d2e;
+}
+
+.nav-link {
+    color: #5c3d2e;
+}
+
+.nav-link:hover {
+    color: #a66a3f;
+}
+
+h1, h2, h3 {
+    color: #5c3d2e;
+}
+
+.card {
+    height: 100%;
+    border: 1px solid #ead8c0;
+}
+
+
+.card img {
+    height: 300px;
+    object-fit: cover;
+}
+
+.card-title {
+    color: #5c3d2e;
+}
+
+.btn-primary {
+    background-color: #8b5e3c;
+    border-color: #8b5e3c;
+}
+
+.btn-primary:hover {
+    background-color: #6f472d;
+    border-color: #6f472d;
+}
+
+section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+footer {
+    margin-top: 20px;
+    background-color: #f3e5d0 !important;
+}
+
+footer p,
+footer h5 {
+    color: #5c3d2e;
+}
+
+form {
+    margin-top: 20px;
+}
+
+/* Página de detalle del libro */
+.detalle-imagen {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 4px 14px rgba(92, 61, 46, 0.25);
+}
+
+.detalle-ficha dt {
+    color: #8b5e3c;
+    font-weight: normal;
+}
+
+.detalle-ficha dd {
+    font-weight: 500;
+}
+
+.detalle-precio {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #5c3d2e;
+}
+
+.contador {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contador .btn-contador {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid #ead8c0;
+    background: #fff;
+    color: #8b5e3c;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.contador .btn-contador:hover {
+    background: #f3e5d0;
+}
+
+.contador input {
+    width: 60px;
+    text-align: center;
+}
+
+.btn-agregar {
+    background-color: #e8731a;
+    border-color: #e8731a;
+    color: #fff;
+    border-radius: 50px;
+    font-weight: bold;
+}
+
+.btn-agregar:hover {
+    background-color: #c85f10;
+    border-color: #c85f10;
+    color: #fff;
+}
+/* Migas de pan (Inicio / Libros / Título) */
+.breadcrumb a {
+    color: #8b5e3c;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    color: #5c3d2e;
+    text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+    color: #5c3d2e;
+    font-weight: 500;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    color: #a66a3f;
+}
+
+/* Botones de filtro: sólidos, de colores (se repiten cada 5) */
+.filtro-btn {
+    --c: #8b5e3c;
+    --t: #fff;
+    background-color: var(--c);
+    border: 1px solid var(--c);
+    color: var(--t);
+}
+
+.filtro-btn:nth-child(5n+1) { --c: #8b5e3c; --t: #fff; }  /* marrón   */
+.filtro-btn:nth-child(5n+2) { --c: #198754; --t: #fff; }  /* verde    */
+.filtro-btn:nth-child(5n+3) { --c: #ffc107; --t: #000; }  /* amarillo */
+.filtro-btn:nth-child(5n+4) { --c: #6c757d; --t: #fff; }  /* gris     */
+.filtro-btn:nth-child(5n+5) { --c: #dc3545; --t: #fff; }  /* rojo     */
+
+.filtro-btn:hover {
+    background-color: var(--c);
+    border-color: var(--c);
+    color: var(--t);
+    filter: brightness(0.9);
+}
+
+/* Categoría seleccionada: aro alrededor y negrita */
+.filtro-btn.activo {
+    background-color: var(--c);
+    border-color: var(--c);
+    color: var(--t);
+    box-shadow: 0 0 0 3px rgba(92, 61, 46, 0.35);
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .card img {
+        height: 250px;
+    }
+}

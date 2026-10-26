@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${libro.id != null ? 'Editar Libro' : 'Nuevo Libro'}">Formulario Libro</title>
+    <!-- Bootstrap para los estilos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+<div class="container mt-5 mb-5">
+    
+    <!-- Título dinámico: dice "Editar" si hay ID, o "Registrar" si está vacío -->
+    <h2 th:text="${libro.id != null ? 'Editar Libro' : 'Registrar Nuevo Libro'}">Registrar Nuevo Libro</h2>
+    <hr>
+    
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <!-- El th:object vincula el formulario al objeto "libro" que enviamos desde el controlador -->
+            <form th:action="@{/admin/libros/guardar}" th:object="${libro}" method="post">
+                
+                <!-- 🚨 ESTA ES LA LÍNEA MÁGICA QUE SOLUCIONA EL PROBLEMA DEL ID 🚨 -->
+                <!-- Envía el ID de forma oculta. Si es nulo, crea. Si tiene ID (ej. 12), actualiza. -->
+                <input type="hidden" th:field="*{id}">
+
+                <div class="row">
+                    <!-- Campo Título -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Título del Libro:</label>
+                        <input type="text" th:field="*{titulo}" class="form-control" 
+                               th:classappend="${#fields.hasErrors('titulo')} ? 'is-invalid'">
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></div>
+                    </div>
+
+                    <!-- Campo Autor -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Autor:</label>
+                        <input type="text" th:field="*{autor}" class="form-control" 
+                               th:classappend="${#fields.hasErrors('autor')} ? 'is-invalid'">
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('autor')}" th:errors="*{autor}"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Selector de Categoría (Relación) -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Categoría:</label>
+                        <select th:field="*{categoria}" class="form-select" 
+                                th:classappend="${#fields.hasErrors('categoria')} ? 'is-invalid'">
+                            <option value="">-- Seleccione una categoría --</option>
+                            <option th:each="cat : ${categorias}" 
+                                    th:value="${cat.id}" 
+                                    th:text="${cat.nombre}">
+                            </option>
+                        </select>
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}"></div>
+                    </div>
+
+                    <!-- Campo Precio -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Precio (S/):</label>
+                        <input type="number" step="0.01" th:field="*{precio}" class="form-control" 
+                               th:classappend="${#fields.hasErrors('precio')} ? 'is-invalid'">
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Campo Editorial -->
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Editorial:</label>
+                        <input type="text" th:field="*{editorial}" class="form-control">
+                    </div>
+
+                    <!-- Campo Año -->
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Año de Publicación:</label>
+                        <input type="number" th:field="*{anio}" class="form-control"
+                               th:classappend="${#fields.hasErrors('anio')} ? 'is-invalid'">
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('anio')}" th:errors="*{anio}"></div>
+                    </div>
+
+                    <!-- Campo Páginas -->
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Número de Páginas:</label>
+                        <input type="number" th:field="*{paginas}" class="form-control"
+                               th:classappend="${#fields.hasErrors('paginas')} ? 'is-invalid'">
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('paginas')}" th:errors="*{paginas}"></div>
+                    </div>
+                </div>
+
+                <!-- Campo Imagen -->
+                <div class="mb-3">
+                    <label class="form-label">Nombre de la Imagen (ej. principito.jpg):</label>
+                    <input type="text" th:field="*{imagen}" class="form-control">
+                </div>
+
+                <!-- Campo Descripción -->
+                <div class="mb-3">
+                    <label class="form-label">Descripción:</label>
+                    <textarea th:field="*{descripcion}" class="form-control" rows="3" 
+                              th:classappend="${#fields.hasErrors('descripcion')} ? 'is-invalid'"></textarea>
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></div>
+                </div>
+
+                <input type="hidden" th:field="*{stock}" value="10">
+
+                <!-- Botones -->
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary">Guardar Libro</button>
+                    <a th:href="@{/admin}" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
